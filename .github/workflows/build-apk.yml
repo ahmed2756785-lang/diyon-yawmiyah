@@ -56,6 +56,9 @@ jobs:
           fi
           python3 tool/patch_gradle.py
 
+      - name: Fix customer screen closing delimiter
+        run: sed -i 's/    ]))),/    ])))),/' lib/screens/add_customer_screen.dart
+
       - name: Create release signing key
         run: |
           mkdir -p android/app
