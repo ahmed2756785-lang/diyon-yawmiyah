@@ -59,6 +59,9 @@ jobs:
       - name: Fix customer screen closing delimiter
         run: sed -i 's/    ]))),/    ])))),/' lib/screens/add_customer_screen.dart
 
+      - name: Add localization dependency
+        run: sed -i '/^  cupertino_icons:/i\\  flutter_localizations:\\n    sdk: flutter' pubspec.yaml
+
       - name: Create release signing key
         run: |
           mkdir -p android/app
